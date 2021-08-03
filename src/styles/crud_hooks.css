@@ -1,0 +1,28 @@
+.app{
+    padding: 30px 15px;
+}
+
+.app h1{
+    font-size: 35pt;
+}
+
+.app .field_row{
+    margin-top: 50px !important;
+}
+
+.field_row h2{
+    margin-bottom: 20px;
+    font-size: 25pt;
+}
+
+.col_field{
+    margin-bottom: 15px;
+}
+
+.col_field label{
+    margin-bottom: 5px;
+}
+
+.table{
+    margin-top: -10px;
+}

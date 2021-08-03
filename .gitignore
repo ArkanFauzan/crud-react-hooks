@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# file
+*.env
+*.lock
+
 # testing
 /coverage
 
