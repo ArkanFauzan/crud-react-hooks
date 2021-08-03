@@ -83,6 +83,7 @@ const CrudHooks = (props)=>{
             const result = await deleteUser(id, users)
             if(result.status==200){
                 setUsers(result.data)
+                disableEdit()
             }
         }
     }
