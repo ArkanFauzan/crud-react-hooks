@@ -52,6 +52,10 @@ const CrudHooks = (props)=>{
         if(errUsername===false){
             users.forEach(v=>{
                 if(v.username === username){
+                    // username can same as current username when edit
+                    if(isEditable && v.id==idToEdit){
+                        return
+                    }
                     errUsername = true;
                 }
             })
@@ -125,7 +129,7 @@ const CrudHooks = (props)=>{
                         onChange={(e)=>{setUsername(e.target.value.split(' ').join(''))}}
                         invalid={err.username}
                         />
-                        <FormFeedback>{err.username && "username harus unik"}</FormFeedback>
+                        <FormFeedback>{ err.username && "username harus diisi dan unik"}</FormFeedback>
                     </Col>
                     <Row>
                         <Col>
@@ -151,7 +155,15 @@ const CrudHooks = (props)=>{
                             </tr>
                         </thead>
                         <tbody>
-                            {users.length===0 ? "No User" : users.map(v=>{
+                            {/* jsonbin cant null
+                                so, i set the value of first object as ""
+                                if lenght=1 it is same as no data,
+                                if length>1, show user but hidden the empty first data
+                            */}
+                            {users.length===1 ? <tr><td colSpan={3}>No User</td></tr> : users.map(v=>{
+                                if(v.id===""){
+                                    return <></>
+                                }
                                 return(
                                     <tr key={v.id}>
                                         <td className="align-middle">{v.name}</td>
