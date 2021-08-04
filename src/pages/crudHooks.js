@@ -4,7 +4,7 @@ import { userContext } from '../App';
 import { addUser,editUser, deleteUser } from '../services/postUser';
 import '../styles/crud_hooks.css'
 
-const CrudHooks = (props)=>{
+const CrudHooks = (props)=>{ 
     // data from parent
     const {users, setUsers} = useContext(userContext)
 
